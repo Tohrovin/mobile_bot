@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>mobile_bot</name>
+<name>mobile_bot</name>
   <version>0.0.0</version>
-  <description>ROS packages controlling (and symulationg) a mobile robot</description>
+  <description>ROS packages controlling (and symulating) a mobile robot</description>
   <maintainer email="my_email@email.com">MY NAME</maintainer>
   <license>apache licence, hehe</license>
 

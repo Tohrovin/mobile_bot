@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <xacro:property name="chassis_geometry">
+            <origin xyz="0.15 0 0.075" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.3 0.3 0.15"/>
+            </geometry>
+    </xacro:property>
+
+    <xacro:property name="wheel_geometry">
+            <geometry>
+                <cylinder length="0.04" radius="0.05" />
+            </geometry>
+    </xacro:property>
+
+    <xacro:property name="caster_wheel_geometry">
+            <geometry>
+                <sphere radius="0.05" />
+            </geometry>
+    </xacro:property>
+
+    <link name="base_link">
+    </link>
+
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="-0.1 0 0"/>
+    </joint>
+
+    <link name="chassis">
+        <visual>
+            <xacro:insert_block name="chassis_geometry" />
+            <material name="white"/>
+        </visual>
+        <collision>
+            <xacro:insert_block name="chassis_geometry" />
+        </collision>
+    </link>
+
+    <!-- LEFT WHEEL -->
+
+    <joint name="left_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+        <origin xyz="0 0.175 0" rpy="-${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="left_wheel">
+        <visual>
+            <xacro:insert_block name="wheel_geometry"/>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <xacro:insert_block name="wheel_geometry"/>
+        </collision>
+    </link>
+
+
+    <!-- RIGHT WHEEL -->
+
+    <joint name="right_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_wheel"/>
+        <origin xyz="0 -0.175 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_wheel">
+        <visual>
+            <xacro:insert_block name="wheel_geometry"/>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <xacro:insert_block name="wheel_geometry"/>
+        </collision>
+    </link>
+
+    <!-- CASTER WHEEL -->
+
+    <joint name="caster_wheel_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="caster_wheel"/>
+        <origin xyz="0.24 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="caster_wheel">
+        <visual>
+            <xacro:insert_block name="caster_wheel_geometry"/>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <xacro:insert_block name="caster_wheel_geometry"/>
+        </collision>
+    </link>
+</robot>
