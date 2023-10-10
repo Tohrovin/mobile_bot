@@ -3,7 +3,7 @@
 <package format="3">
 <name>mobile_bot</name>
   <version>0.0.0</version>
-  <description>ROS packages controlling (and symulating) a mobile robot</description>
+  <description>ROS packages controlling (and simulating) a mobile robot</description>
   <maintainer email="my_email@email.com">MY NAME</maintainer>
   <license>apache licence, hehe</license>
 
