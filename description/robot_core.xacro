@@ -10,9 +10,16 @@
             </geometry>
     </xacro:property>
 
-    <xacro:property name="wheel_geometry">
+    <xacro:property name="wheel_geometry_v">
             <geometry>
                 <cylinder length="0.007" radius="0.016" />
+            </geometry>
+    </xacro:property>
+
+
+    <xacro:property name="wheel_geometry_c">
+            <geometry>
+                <sphere radius="0.016" />
             </geometry>
     </xacro:property>
 
@@ -58,11 +65,11 @@
 
     <link name="left_wheel">
         <visual>
-            <xacro:insert_block name="wheel_geometry"/>
+            <xacro:insert_block name="wheel_geometry_v"/>
             <material name="blue"/>
         </visual>
         <collision>
-            <xacro:insert_block name="wheel_geometry"/>
+            <xacro:insert_block name="wheel_geometry_c"/>
         </collision>
 
         <xacro:inertial_cylinder mass="0.1" length="0.007" radius="0.016">
@@ -83,11 +90,11 @@
 
     <link name="right_wheel">
         <visual>
-            <xacro:insert_block name="wheel_geometry"/>
+            <xacro:insert_block name="wheel_geometry_v"/>
             <material name="blue"/>
         </visual>
         <collision>
-            <xacro:insert_block name="wheel_geometry"/>
+            <xacro:insert_block name="wheel_geometry_c"/>
         </collision>
 
         <xacro:inertial_cylinder mass="0.1" length="0.007" radius="0.016">
