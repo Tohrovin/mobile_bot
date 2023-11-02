@@ -5,10 +5,9 @@
   <version>0.0.0</version>
   <description>ROS packages controlling (and simulating) a mobile robot</description>
   <maintainer email="my_email@email.com">MY NAME</maintainer>
-  <license>apache licence, hehe</license>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
